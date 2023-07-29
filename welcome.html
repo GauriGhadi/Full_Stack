@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function showWelcome(){
+                //document - In bulit object of Javascript, which refers to DOM tree
+                var obj = document.getElementById('name');
+                console.log(obj.value);
+                window.alert("Welcome "+ obj.value);
+            }
+            function enableButton(){
+                var btnObj = document.getElementById('btn1');
+                var textObj = document.getElementById('name');
+                if (textObj.value.length == 0){
+                    btnObj.setAttribute('disabled', true);
+                }else{
+                    btnObj.removeAttribute('disabled');
+                }
+            }
+        </script>
+        <body>
+            Enter your Name:
+            <input oninput="enableButton()" type="text" id="name"/>
+            <button id="btn1" onclick="showWelcome()" disabled> Click Me</button>
+        </body>
+    </head>
+</html>

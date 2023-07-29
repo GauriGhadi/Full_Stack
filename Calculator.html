@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <script type="text/javascript">
+         function showCalculator() {
+    var obj1 = document.getElementById('number1');
+    var obj2 = document.getElementById('number2');
+    var operator = document.getElementById('Operators').value;
+    function showCalculator() {
+    var obj1 = document.getElementById('number1');
+    var obj2 = document.getElementById('number2');
+    var operator = document.getElementById('Operators').value;}
+
+    var result = document.getElementById('result').value;
+    if (operator === "+") {
+        result = parseInt(obj1.value) + parseInt(obj2.value);
+    } else if (operator === "-") {
+        result = parseInt(obj1.value) - parseInt(obj2.value);
+    } else if (operator === "*") {
+        result = parseInt(obj1.value) * parseInt(obj2.value);
+    } else if (operator === "/") {
+        result = parseInt(obj1.value) / parseInt(obj2.value);
+    }
+    var ansObj = document.getElementById('result');
+    ansObj.value = result;
+
+    console.log("Result: " + result);
+    
+    
+    
+}
+
+           
+               /* window.alert("Addition "+ add);
+                window.alert("Substraction "+ sub);
+                window.alert("Multiplication "+ multi);
+                window.alert("Division "+ divi);*/
+
+            function enableButton(){
+                var btnObj = document.getElementById('btn1');
+                var textObj = document.getElementById('number1');
+                if (textObj.value.length == 0){
+                    btnObj.setAttribute('disabled', true);
+                }else{
+                    btnObj.removeAttribute('disabled');
+                }
+            }
+        </script>
+    </head>
+    <body>
+        Enter Number 1:
+        <input oninput="enableButton()" type="number" id="number1"/>
+        <select name="operator" id="Operators">
+            <option value="+">Addition</option>
+            <option value="-">Subtraction</option>
+            <option value="*">Multiplication</option>
+            <option value="/">Division</option>
+        </select>
+        
+        Enter Number 2:
+        <input oninput="enableButton()" type="number" id="number2"/>
+        <button id="btn1" onclick="showCalculator()" disabled>=</button>
+        <input type="number" id="result" readonly/>
+
+    </body>
+</html>
