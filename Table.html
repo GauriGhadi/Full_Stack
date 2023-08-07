@@ -1,0 +1,33 @@
+<html>
+    <head>
+
+    </head>
+<body>
+    Enter Number:
+    <input type="number" id="number" />
+
+    <button id="btn1" onclick="generateTable()">Generate Table</button>
+
+    <div id="tableCreator"></div>
+
+    <script>
+        function generateTable() {
+            var number = parseInt(document.getElementById('number').value);
+
+            var table= document.getElementById('tableCreator');
+
+            tableCreator.innerHTML = '';
+
+            var table = document.createElement('table');
+
+            for (var i = 1; i <= 10; i++) {
+                var row = table.insertRow();
+                var cell = row.insertCell();
+                cell.textContent = number + ' x ' + i + ' = ' + (number * i);
+            }
+
+            tableCreator.appendChild(table);
+        }
+    </script>
+</body>
+</html>

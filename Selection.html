@@ -1,0 +1,62 @@
+<html>
+<head>
+    <script type="text/javascript">
+        var numbersList = [];
+
+        function showSelection(operator) {
+            var obj1 = document.getElementById('number');
+            var result = parseInt(obj1.value);
+
+            if (operator === '+') {
+                numbersList.push(result);
+            } else if (operator === '-') {
+                
+                numbersList = numbersList.filter(item => item !== result);
+            }  if (operator === 'highlight') {
+                
+                var listDisplay = document.getElementById('list-display');
+                var items = listDisplay.child;
+                for (var i = 0; i < items.length; i++) {
+                    var itemValue = parseInt(items[i].innerText);
+                    if (itemValue === result) {
+                        items[i].style.backgroundColor = 'yellow';
+                    } else {
+                        items[i].style.backgroundColor = 'white';
+                    }
+                }
+                return; 
+            }
+
+            obj1.value = "";
+
+            updateListDisplay();
+        }
+
+        function updateListDisplay() {
+        //var btnobj= document.createElement('Button');
+        //btnobj.innerHTML=operator;
+        //bodyObj.appendchild(btnobj);
+            var listDisplay = document.getElementById('list-display');
+            listDisplay.innerHTML = numbersList.join('  ');
+        }
+    </script>
+</head>
+<body>
+    Enter Number:
+    <input type="number" id="number" />
+
+    Addition:
+    <button id="btn1" onclick="showSelection('+')">+</button>
+
+    Subtraction:
+    <button id="btn2" onclick="showSelection('-')">-</button>
+
+    Highlight:
+    <button id="btn3" onclick="showSelection('highlight')">Highlight</button>
+
+    <div>
+        <h3>Number List:</h3>
+        <p id="list-display"></p>
+    </div>
+</body>
+</html>
